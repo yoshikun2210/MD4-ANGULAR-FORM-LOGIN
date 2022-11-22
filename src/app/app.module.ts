@@ -25,6 +25,12 @@ import { RegisterComponent } from './form-login/register/register.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ParentInputComponent } from './input/parent-input/parent-input.component';
+import { ChildInputComponent } from './input/child-input/child-input.component';
+import { ParentOutputComponent } from './output/parent-output/parent-output.component';
+import { ChildOutputComponent } from './output/child-output/child-output.component';
+import { LoginComponent } from './form-login/login/login.component';
+import { ProfileComponent } from './profile/profile/profile.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
@@ -33,11 +39,12 @@ export const appRoutes: Routes = [
     component: GettingStartedComponent,
     data: { title: 'Getting Started' }
   },
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
-@NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent],
+@NgModule({declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, LoginComponent, ProfileComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
