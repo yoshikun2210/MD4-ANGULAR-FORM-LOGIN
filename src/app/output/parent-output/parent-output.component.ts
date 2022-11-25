@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-parent-output',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent-output.component.scss']
 })
 export class ParentOutputComponent implements OnInit {
+  listStudent = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  showListStudent($event: any) {
+    console.log('event', $event);
+    this.listStudent = $event;
+  }
 }

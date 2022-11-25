@@ -9,8 +9,8 @@
                         <mat-label>UserName :</mat-label>
                         <input name="username" #username="ngModel"[(ngModel)] = "form.username" matInput placeholder="Placeholder" minlength="3" maxlength="50" required>
                         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                        <mat-error *ngIf="username.hasError('required')">Name is required</mat-error>
-                        <mat-error *ngIf="username.hasError('minlength')">Name phai lon hon 3 ky tu !</mat-error>
+                        <mat-error *ngIf="username.hasError('required')">Username is required</mat-error>
+                        <mat-error *ngIf="username.hasError('minlength')">USername phai lon hon 3 ky tu !</mat-error>
                     </mat-form-field>
                     <br>
                     <!--                    PASSWORD-->

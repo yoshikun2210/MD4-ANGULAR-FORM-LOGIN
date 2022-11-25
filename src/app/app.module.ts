@@ -31,6 +31,15 @@ import { ParentOutputComponent } from './output/parent-output/parent-output.comp
 import { ChildOutputComponent } from './output/child-output/child-output.component';
 import { LoginComponent } from './form-login/login/login.component';
 import { ProfileComponent } from './profile/profile/profile.component';
+import { MutipleAvatarComponent } from './upload/multiple-avatar/mutiple-avatar.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {environment} from '../environments/environment.prod';
+import { SingerComponent } from './upload/singer-avatar/singer.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSelectModule} from '@angular/material/select';
+import {AuthGuard} from './sevurity/auth.guard';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
@@ -41,10 +50,10 @@ export const appRoutes: Routes = [
   },
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
 ];
-
-@NgModule({declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, LoginComponent, ProfileComponent],
+// tslint:disable-next-line:max-line-length
+@NgModule({declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, ParentInputComponent, ChildInputComponent, ParentOutputComponent, ChildOutputComponent, LoginComponent, ProfileComponent, MutipleAvatarComponent, SingerComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -59,7 +68,10 @@ export const appRoutes: Routes = [
     BrowserAnimationsModule,
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule
+    AngularFireStorageModule,
+    MatSelectModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

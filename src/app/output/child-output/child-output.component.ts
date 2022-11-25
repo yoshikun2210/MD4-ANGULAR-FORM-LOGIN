@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-child-output',
@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildOutputComponent implements OnInit {
   listStudent = [
-    {id: 1, name: 'Name'}, {id: 2, name: 'Vo dich LOL'}
+    {id: 1, name: 'Nam'}, {id: 2, name: 'Vo dich LOL'}
   ];
-
+@Output()
+dataFormChild = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit(): void {
+    this.dataFormChild.emit(this.listStudent);
   }
 
 }

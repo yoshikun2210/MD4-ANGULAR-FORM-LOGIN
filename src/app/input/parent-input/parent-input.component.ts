@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentInputComponent implements OnInit {
   ListStudent = [
-    {id: 1, name: 'Nam'}, {id: 2, name: 'Tung'}, {id: 3, name: 'Kien'}
+    {id: 1, name: 'Nam'}, {id: 2, name: 'Tung'}, {id: 3, name: 'dang cap'}
   ];
 
 
